@@ -1,0 +1,64 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	font-family: 'Roboto', cursive;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	background: url(img/brick.jpg);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: repeat;
+}
+
+section {
+	background: #E8CCAC;
+	border-width: 40px;
+	border-style: solid;
+	border-color: #695149 #8F6152 #695149 #8F6152;
+	box-shadow: inset 4px 4px 8px 1px rgb(0,0,0,0.7);
+	width: 40vw;
+	filter: drop-shadow(8px 8px 12px rgb(0,0,0,0.7));
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	overflow: auto;
+	padding: 8vh 10vw;
+	margin: 2%;
+}
+
+a {
+	cursor: pointer;
+}
+
+img {
+	width: 175px;
+}
+
+img:hover {
+	transform: scale(1.05);
+	filter: drop-shadow(8px 8px 12px rgb(0,0,0,0.3));
+}
+
+section > img {
+	width: 10vw;
+	cursor: default;
+}
+
+section > img:hover {
+	transform: scale(1);
+	filter: drop-shadow(0 0 0 rgb(0,0,0,0));
+}
+
+
+
+
+
+
