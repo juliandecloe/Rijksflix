@@ -10,34 +10,15 @@ body {
 	font-weight: 400;
 }
 
-.bg1 {
+section > img {
 	position: absolute;
-	background: url(img/julian.jpg);
-	background-size: 106%;
-	background-position: 0 -90px;
 	filter: grayscale(100%);
+	object-fit: cover;
 	width: 454px;
 	height: 265px;
 	clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
 	z-index: 1;
 	cursor: url(img/dot.png), auto;
-}
-
-.bg2 {
-	position: absolute;
-	background: url(img/julian2.jpg);
-	background-size: cover;
-	background-position: 0 -90px;
-	filter: grayscale(100%);
-	width: 454px;
-	height: 265px;
-	clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-	z-index: 2;
-	cursor: url(img/dot.png), auto;
-}
-
-.hide {
-	display: none;
 }
 
 section {
