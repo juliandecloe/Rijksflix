@@ -1,0 +1,124 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body, html {
+	font-family: 'poe-vetica-new', sans-serif;	
+	overflow-x: hidden;
+}
+
+/*========== HEADER ==========*/
+
+header {
+	background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url(img/headerbackground.webp);
+	background-size: cover;
+	background-position: center center;
+	height: 60vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5rem 1rem;
+	color: white;
+}
+
+header svg {
+	width: 80%;
+	margin-bottom: 1rem;
+}
+
+header p {
+	font-size: 24px;
+	text-transform: uppercase;
+	margin-bottom: 8rem;
+}
+
+header form {
+	display: flex;
+
+}
+
+header input:first-child {
+	width: 70vw;
+	height: 32px;
+	border: none;
+	padding: 5px;
+	margin-right: 2px;
+}
+
+header button {
+	border: none;
+	width: 62px;
+	height: 42px;
+	background: white;
+	padding: 5px;
+	cursor: pointer;
+}
+
+header button svg {
+	margin-top: -34px;
+	width: 50%;
+}
+
+/*========== MAIN ==========*/
+
+section {
+	padding: 2rem 0;
+}
+
+section h2 {
+	margin: 0 0 1rem 2rem;
+}
+
+ul {
+	overflow-x: scroll;
+	overflow-y: hidden;
+  	white-space: nowrap;
+	width: 100vw;
+	padding: 0 2rem
+}
+
+li {
+	background: var(--element-background);
+	display: inline-block;
+	margin-right: 1rem;
+	width: 18rem;
+	height: 10rem;
+	position: relative;
+}
+
+li img {
+	width: 18rem;
+	height: 10rem;
+	object-fit: cover;
+}
+
+li h3 {
+	z-index: 1;
+}
+
+li:last-child {
+	padding-right: 2rem;
+}
+
+.loading {
+	background: lightgray;
+	animation: loading 2s infinite ease-in;
+}
+
+.antiscroll {
+	overflow: hidden;
+}
+
+@keyframes loading {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
