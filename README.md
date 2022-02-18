@@ -5,6 +5,8 @@ Ik heb voor het Rijksmuseum gekozen als opdracht. De user story van deze opdrach
 
 ## Inzichten
 
+**De website werkt momenteel alleen nog op mobile! (iPhone 6/7/8)**
+
 ### Hoe je de detailspagina van een specifiek object naar boven haalt.
 ![](spa/proces/detailedAPI.png)
 
