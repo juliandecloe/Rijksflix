@@ -5,11 +5,11 @@ Ik heb voor het Rijksmuseum gekozen als opdracht. De user story van deze opdrach
 
 ## Inzichten
 
-###Hoe je de detailspagina van een specifiek object naar boven haalt.
+### Hoe je de detailspagina van een specifiek object naar boven haalt.
 ![](spa/proces/detailedAPI.png)
 
 
-###Nieuwe pagina laden 
+### Nieuwe pagina laden 
 
 ![](spa/proces/page.png)
 ![](spa/proces/fetchpage.png)
