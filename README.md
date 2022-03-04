@@ -1,20 +1,67 @@
-# Mijn Web App - Rijksmuseum
+# My Web App - Rijksmuseum
 
-Ik heb voor het Rijksmuseum gekozen als opdracht. De user story van deze opdracht luidt: 
+I chose for the Rijksmuseum assignment. The user story for this assignment is:
 > As an art lover, I want to be able to search and view art from the Rijksmuseum at home, so that I can still enjoy art during a lockdown. [Rijksmuseum - RijksData API](https://data.rijksmuseum.nl/object-metadata/)
 
-## Inzichten
+The plan I have is to create something like Netflix, but for art. Hence the name [Rijksflix](juliandecloe.github.io/rijksflix/spa)
 
-**De website werkt momenteel alleen nog op mobile! (iPhone 6/7/8)**
+## Insights
 
-### Hoe je de detailspagina van een specifiek object naar boven haalt.
-![](spa/proces/detailedAPI.png)
+### How to fetch the detailed artObject API
+```
+for(let i = 0; i < collection.artObjects.length; i++) {
+	fetch('https://www.rijksmuseum.nl/api/nl/collection/' + collection.artObjects[i].objectNumber +'?key=C21U7KQu&imgonly=true')
+	.then(function(response) {
+		return response.json();
+	})
+	.then(function(detailed) {
+		console.log(detailed)
+		listWrap.insertAdjacentHTML('beforeend', 
+			`<li>
+				<h3>${detailed.artObject.principalOrFirstMaker}</h3>
+				<img src="${detailed.artObject.webImage.url}" alt="${detailed.artObject.title}">
+			</li>`
+		);	
+	})
+}
+```
 
+```
+let page = 1;
+const rijksAPI = 'https://www.rijksmuseum.nl/api/nl/collection?key=C21U7KQu&ps=10&imgonly=true&p=';
 
-### Nieuwe pagina laden 
+function getData() {
+    fetch(rijksAPI + page)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(collection) {
+        console.log(collection)
+        listAssign(collection);
+    })
+    .then(function() {
+        listWrap.insertAdjacentHTML('beforeend', 
+            `<li class="loading lastOne"></li>`
+        );	
+    })
+}
 
-![](spa/proces/page.png)
-![](spa/proces/fetchpage.png)
+```
 
-Door deze interval wordt er gecheckt of het 4e 'li' element in beeld is. Als deze in beeld is worden de volgende 5 items uit de API geladen. Het nadeel is dat ik hier een interval gebruik waardoor hij aan het begin al teveel elementen laadt. Het liefst gebruik ik het 'scroll' event, maar omdat het een horizontale scroll is, wordt het niet gezien als scroll.
-![](spa/proces/interval.png)
+### Check if element is in screen to load more objects
+
+This is to check on horizontal scroll if the 4th last element is in screen to load 10 new objects.
+
+```
+function rectChecker() {
+    if(!exploreSec.classList.contains('hide')) {
+        let listLast = $$('.explore li');
+        const rect = listLast[listLast.length - 4].getBoundingClientRect();
+        if(rect.right < 600) {
+            page = page + 1;
+            clearInterval(listChecker);
+            getData();
+        }
+    }
+}
+```

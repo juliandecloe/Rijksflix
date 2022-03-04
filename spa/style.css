@@ -24,7 +24,7 @@ header {
 }
 
 header svg {
-	width: 80%;
+	width: 80vw;
 	margin-bottom: 1rem;
 }
 
@@ -36,7 +36,6 @@ header p {
 
 header form {
 	display: flex;
-
 }
 
 header input:first-child {
@@ -45,6 +44,13 @@ header input:first-child {
 	border: none;
 	padding: 5px;
 	margin-right: 2px;
+	padding-left: 1vw;
+}
+
+@media (min-width: 750px) {
+	header input:first-child {
+		width: 40vw;
+	}
 }
 
 header button {
@@ -63,6 +69,10 @@ header button svg {
 
 /*========== MAIN ==========*/
 
+h2, h3 {
+	color: #343537;
+}
+
 section {
 	padding: 2rem 0;
 }
@@ -71,7 +81,7 @@ section h2 {
 	margin: 0 0 1rem 2rem;
 }
 
-ul {
+.explore ul {
 	overflow-x: scroll;
 	overflow-y: hidden;
   	white-space: nowrap;
@@ -79,32 +89,49 @@ ul {
 	padding: 0 2rem
 }
 
-li {
-	background: var(--element-background);
+.explore li {
 	display: inline-block;
 	margin-right: 1rem;
 	width: 18rem;
-	height: 10rem;
+	height: 20rem;
 	position: relative;
 }
 
-li img {
+.explore li img {
 	width: 18rem;
-	height: 10rem;
+	height: 20rem;
 	object-fit: cover;
 }
 
 li h3 {
 	z-index: 1;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
-li:last-child {
+.explore li:last-child {
 	padding-right: 2rem;
 }
 
 .loading {
 	background: lightgray;
 	animation: loading 2s infinite ease-in;
+}
+
+.loading:last-child {
+	position: relative;
+}
+
+.loading:last-child::after {
+	display: block;
+	content: "";
+	height: 20rem;
+	width: 2rem;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: white;
 }
 
 .antiscroll {
@@ -120,5 +147,43 @@ li:last-child {
 	}
 	100% {
 		opacity: 1;
+	}
+}
+
+.hide {
+	display: none;
+}
+
+.search h2 {
+	margin-left: 1rem;
+}
+
+.search ul {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 1rem;
+}
+
+.search li {
+	display: block;
+	width: 10rem;
+	height: 12rem;
+	position: relative;
+	margin: 0 1rem 2rem 0;
+}
+
+.search li img {
+	width: 10rem;
+	height: 12rem;
+	object-fit: cover;
+}
+
+@media (min-width: 385px) {
+	.search h2 {
+		margin-left: 2rem;
+	}
+
+	.search ul {
+		margin-left: 2rem;
 	}
 }

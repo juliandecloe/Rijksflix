@@ -1,58 +1,21 @@
 //1. Variables (aka bindings), on top of global scope
-let page = 1;
-const rijksAPI = 'https://www.rijksmuseum.nl/api/nl/collection?key=C21U7KQu&ps=5&imgonly=true&p=';
-
-//2. the story
-getData();
+import {searchFunction} from "./modules/search.js";
+import {loadArtist} from "./modules/artists.js";
 
 
-//3. functions
+searchFunction();
+loadArtist();
 
-function getData() {
-	fetch(rijksAPI + page)
-	.then(function(response) {
-		return response.json();
-	})
-	.then(function(collection) {
-		console.log(collection)
-		const list = $$('ul li');
-		const listWrap = $('section:first-child ul');
-		if(page <= 1) {
-			for(let i = 0; i < list.length; i++) {
-				list[i].remove();
-			}
-		}			
-		for(let i = 0; i < collection.artObjects.length; i++) {
-			const artObjects = collection.artObjects[i]; 
-			listWrap.insertAdjacentHTML('beforeend', 
-				`<li>
-					<h3>${artObjects.principalOrFirstMaker}</h3>
-					<img src="${artObjects.webImage.url.slice(0, -3)+"=s1000"}" alt="${artObjects.title}">
-				</li>`
-			);
-			listWrap.classList.remove('antiscroll');
-		}
-	})
-}
 
-function $(element) {
+export function $(element) {
 	return document.querySelector(element);
 }
 
-function $$(element) {
+export function $$(element) {
 	return document.querySelectorAll(element);
 }
-
-setInterval(function() {
-	let listLast = $$('li');
-	const rect = listLast[listLast.length - 1].getBoundingClientRect();
-	if(rect.right < 600) {
-		console.log('in view')
-		page = page + 1;
-		getData();
-	}
-}, 10)
 	
+
 
 /*
 for(let i = 0; i < collection.artObjects.length; i++) {
@@ -69,6 +32,9 @@ for(let i = 0; i < collection.artObjects.length; i++) {
 			</li>`
 		);	
 	})
-}*/
 
+	if(exploreSec.classList.contains('hide')) {
+		clearInterval(listChecker);
+	} else {
+}*/
 
