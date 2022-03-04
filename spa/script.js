@@ -32,9 +32,5 @@ for(let i = 0; i < collection.artObjects.length; i++) {
 			</li>`
 		);	
 	})
-
-	if(exploreSec.classList.contains('hide')) {
-		clearInterval(listChecker);
-	} else {
 }*/
 
