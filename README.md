@@ -3,7 +3,7 @@
 I chose for the Rijksmuseum assignment. The user story for this assignment is:
 > As an art lover, I want to be able to search and view art from the Rijksmuseum at home, so that I can still enjoy art during a lockdown. [Rijksmuseum - RijksData API](https://data.rijksmuseum.nl/object-metadata/)
 
-The plan I have is to create something like Netflix, but for art. Hence the name [Rijksflix](juliandecloe.github.io/rijksflix/spa)
+The plan I have is to create something like Netflix, but for art. Hence the name [Rijksflix](https://juliandecloe.github.io/Rijksflix/spa/)
 
 ## Insights
 
