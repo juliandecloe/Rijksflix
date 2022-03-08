@@ -57,12 +57,21 @@ searchForm.addEventListener('submit', function(e) {
 	}
 });
 
-searchForm.addEventListener('input', function() {
+searchInput.addEventListener('input', function() {
 	if(searchInput.value == "") {
+		console.log('hey')
 		searchSec.classList.add('hide');
 		exploreSec.classList.remove('hide');
 		removeHash()
 	}
+});
+
+const noresultsBtn = document.querySelector('.no-results button')
+
+noresultsBtn.addEventListener('click', function() {
+	window.scrollTo(0, 0);
+	searchInput.value = "";
+	searchInput.focus();
 });
 
 

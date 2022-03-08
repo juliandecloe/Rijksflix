@@ -205,11 +205,12 @@ li h3 {
 	margin-bottom: 2em;
 }
 
-.no-results a {
+.no-results button {
 	background-color: #343537;
 	color: white;
 	padding: 10px 15px;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 @media (min-width: 385px) {
