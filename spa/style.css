@@ -6,6 +6,7 @@
 body, html {
 	font-family: 'poe-vetica-new', sans-serif;	
 	overflow-x: hidden;
+	scroll-behavior: smooth;
 }
 
 /*========== HEADER ==========*/
@@ -123,7 +124,7 @@ li h3 {
 	position: relative;
 }
 
-.loading:last-child::after {
+.explore .loading:last-child::after {
 	display: block;
 	content: "";
 	height: 20rem;
@@ -150,10 +151,6 @@ li h3 {
 	}
 }
 
-.hide {
-	display: none;
-}
-
 .search h2 {
 	margin-left: 1rem;
 }
@@ -169,13 +166,50 @@ li h3 {
 	width: 10rem;
 	height: 12rem;
 	position: relative;
-	margin: 0 1rem 2rem 0;
+	margin: 0 1rem 7rem 0;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.search li:hover {
+	transform: translateY(-0.5em);
+}
+
+.search li:hover h3 {
+	text-decoration: underline;
+}
+
+.search li h3 {
+	margin-bottom: 0.5em; 
+}
+
+.search li p {
+	color: #A3ABAD;
 }
 
 .search li img {
 	width: 10rem;
 	height: 12rem;
 	object-fit: cover;
+	margin-bottom: 0.5em; 
+}
+
+.no-results {
+	margin: 3em 0;
+	width: 100vw;
+	display: grid;
+	place-items: center;
+}
+
+.no-results p {
+	margin-bottom: 2em;
+}
+
+.no-results a {
+	background-color: #343537;
+	color: white;
+	padding: 10px 15px;
+	text-decoration: none;
 }
 
 @media (min-width: 385px) {
@@ -186,4 +220,8 @@ li h3 {
 	.search ul {
 		margin-left: 2rem;
 	}
+}
+
+.hide {
+	display: none;
 }
