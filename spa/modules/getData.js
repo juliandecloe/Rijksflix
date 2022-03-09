@@ -1,21 +1,19 @@
 //import functions
-import { $$ } from "../script.js";
+import { $ } from "../script.js";
 import {starterResults} from "./renderData.js";
 import {searchResults} from "./renderData.js";
+import {removeliafterLoad} from "./states.js";
+import {searchLoader} from "./states.js";
 
-//import variables
-import { exploreWrap } from "../script.js";
-import { searchWrap } from "../script.js";
-import { searchSec } from "../script.js";
-import { searchInput } from "../script.js";
-import { page } from "../script.js";
-import { exploreSec } from "../script.js";
+import {searchPage} from "../script.js";
 
-
+const exploreWrap = $('.explore ul');
 const rijksAPI = 'https://www.rijksmuseum.nl/api/nl/collection?key=C21U7KQu&ps=10&imgonly=true&p=';
 const searchAPI = 'https://www.rijksmuseum.nl/api/nl/collection?key=C21U7KQu&ps=10&imgonly=true&q=';
+let page = 1;
 
 export function getartistData() {
+    page = page + 1;
     fetch(rijksAPI + page)
     .then(function(response) {
         return response.json();
@@ -26,28 +24,21 @@ export function getartistData() {
     })
     .then(function() {
         exploreWrap.insertAdjacentHTML('beforeend', 
-            `<li class="loading lastOne"></li>`
+            `<li class="loading">
+                <h3></h3>
+                <p></p>
+                <figure></figure>
+            </li>`
         );	
     })
 }
 
 export function getsearchData() {
-    const listEl = $$('.search li');
-    if(listEl != null) { 
-        for(let i = 0; i < listEl.length; i++) {
-            listEl[i].remove();
-        }
+    if(searchPage == 1) {
+        removeliafterLoad()
     }
-    exploreSec.classList.add('hide');
-    searchSec.classList.remove('hide');
-    searchWrap.insertAdjacentHTML('beforeend', 
-        `<li class="loading lastOne"></li>
-        <li class="loading lastOne"></li>
-        <li class="loading lastOne"></li>
-        <li class="loading lastOne"></li>
-        <li class="loading lastOne"></li>`
-    );
-    fetch(searchAPI + window.location.hash.slice(1))
+    searchLoader()
+    fetch(searchAPI + window.location.hash.slice(1) + '&p=' + searchPage)
     .then(function(response) {
         return response.json();
     })

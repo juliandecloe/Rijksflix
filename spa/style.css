@@ -87,21 +87,42 @@ section h2 {
 	overflow-y: hidden;
   	white-space: nowrap;
 	width: 100vw;
-	padding: 0 2rem
+	padding: 0 2rem;
+	display: flex;
 }
 
 .explore li {
 	display: inline-block;
 	margin-right: 1rem;
-	width: 18rem;
-	height: 20rem;
+	width: 60vw;
+	height: 80vh;
 	position: relative;
 }
 
+.explore li:last-child {
+	width: 60vw;
+}
+
 .explore li img {
-	width: 18rem;
-	height: 20rem;
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
+}
+
+.explore h3 {
+	margin-bottom: 0.2em; 
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 60vw;
+}
+
+.explore p {
+	color: #A3ABAD;
+	margin-bottom: .5em; 
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 li h3 {
@@ -115,7 +136,18 @@ li h3 {
 	padding-right: 2rem;
 }
 
-.loading {
+.loading h3 {
+	--loading-h3-width: 30vw;
+	width: var(--loading-h3-width);
+	margin-right: calc(60vw - var(--loading-h3-width));
+	height: 22px;
+	background: lightgray;
+	animation: loading 2s infinite ease-in;
+}
+
+.loading p {
+	width: 10rem;
+	height: 18.5px;
 	background: lightgray;
 	animation: loading 2s infinite ease-in;
 }
@@ -124,15 +156,11 @@ li h3 {
 	position: relative;
 }
 
-.explore .loading:last-child::after {
-	display: block;
-	content: "";
-	height: 20rem;
-	width: 2rem;
-	position: absolute;
-	right: 0;
-	top: 0;
-	background: white;
+.loading figure {
+	width: 100%;
+	height: 100%;
+	background: lightgray;
+	animation: loading 2s infinite ease-in;
 }
 
 .antiscroll {
@@ -211,6 +239,33 @@ li h3 {
 	padding: 10px 15px;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+.no-results button:hover {
+	background-color: #5F99B0;
+	color: white;
+}
+
+.search .loadmore {
+	background-color: lightgray;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.search .loadmore:hover {
+	opacity: .5;
+}
+
+.search .loadmore p {
+	color: #343537;
+	font-weight: 800;
+}
+
+.search .loadmore img {
+	width: 25%;
+	height: auto;
 }
 
 @media (min-width: 385px) {
