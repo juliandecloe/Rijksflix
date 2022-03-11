@@ -92,4 +92,3 @@ noresultsBtn.addEventListener('click', function() {
 	searchInput.value = "";
 	searchInput.focus();
 });
-
